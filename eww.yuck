@@ -1,0 +1,43 @@
+(defwidget greeter [?text name]
+	(box	:orientation "horizontal"
+		(box
+			(image 	:path 	'/tmp/test.png'
+				:width 	'300'
+				:heigth '300')
+		)
+		(box	:orientation "vertical"
+			text	song
+			(progress	:value prog_bar
+					:orientation 'h'
+			)
+			(box	:orientation "horizontal"
+				:halign "center"
+				(button :onclick "notify-send 'Hello' 'Hello, ${name}'" "Greet")
+				(button :onclick "notify-send 'Hello' 'Hello, ${name}'")
+				(button :onclick "notify-send 'Hello' 'Hello, ${name}'")
+				(button :onclick "notify-send 'Hello' 'Hello, ${name}'")
+	
+			)
+		)
+	)
+)
+(defwindow example
+	:monitor 0
+	:geometry (geometry 	:x "400px"
+				:y "400px"
+				:width "40%"
+				:height "100px"
+				:anchor "center center")
+	:stacking "fg"
+	:reserve (struts :distance "40px" :side "top")
+	:windowtype "normal"
+	:wm-ignore false
+(greeter :text "Say hello!"
+	 :name "Tim"))
+
+(defpoll song 	:initial "song"
+		:interval "1s"
+"mpc -f '%artist% - %title%' current")
+(defpoll prog_bar 	:initial '0'
+			:interval "1s"
+"mpc status | grep '#' | awk '{print $4}' | sed 's/(//;s/%.//'")
