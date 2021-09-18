@@ -1,43 +1,59 @@
-(defwidget greeter [?text name]
-	(box	:orientation "horizontal"
-		(box
+; Widget definition
+(defwidget music-player [] 
+	(box	:orientation  "horizontal"
+            :spacing      "20"
+            :halign       "start"
+            :space-evenly false
+            (box  :width 0)
 			(image 	:path 	'/tmp/test.png'
-				:width 	'300'
-				:heigth '300')
-		)
-		(box	:orientation "vertical"
-			text	song
-			(progress	:value prog_bar
-					:orientation 'h'
-			)
-			(box	:orientation "horizontal"
-				:halign "center"
-				(button :onclick "notify-send 'Hello' 'Hello, ${name}'" "Greet")
-				(button :onclick "notify-send 'Hello' 'Hello, ${name}'")
-				(button :onclick "notify-send 'Hello' 'Hello, ${name}'")
-				(button :onclick "notify-send 'Hello' 'Hello, ${name}'")
-	
-			)
-		)
+				    :width 	'180'
+				    :heigth '180'
+            )
+		    (box	:orientation  "vertical"
+			        :spacing      "10"
+                    :space-evenly true
+                    :valign       "center"
+                    :height       150
+                    artist
+                    title
+			        (progress :value prog_bar
+					          :orientation 'h'
+			                  :width '100'
+                    )
+			        (box	:orientation "horizontal"
+				            :halign "center"
+				            (button :onclick "mpc prev"   "" )
+				            (button :onclick "mpc toggle" "" )
+				            (button :onclick "mpc stop"   "" )
+				            (button :onclick "mpc next"   "" )
+			        )
+		    )
 	)
 )
-(defwindow example
-	:monitor 0
-	:geometry (geometry 	:x "400px"
-				:y "400px"
-				:width "40%"
-				:height "100px"
-				:anchor "center center")
-	:stacking "fg"
-	:reserve (struts :distance "40px" :side "top")
-	:windowtype "normal"
-	:wm-ignore false
-(greeter :text "Say hello!"
-	 :name "Tim"))
 
-(defpoll song 	:initial "song"
-		:interval "1s"
-"mpc -f '%artist% - %title%' current")
+; Window definition
+(defwindow mpd-client
+	:monitor 0
+	:geometry (geometry :x "-400px"
+                        :y "400px"
+                        :width "25%"
+	                    :height "220px"
+			    	   	:anchor "center center")
+	:stacking "fg"
+	:reserve (struts  :distance "40px" :side "top")
+	                  :windowtype "normal"
+	                  :wm-ignore false
+    music-player
+)
+
+; Polling variables
+(defpoll title  :initial "title"
+		        :interval "500ms"
+                "mpc -f '%title%' current")
+(defpoll artist :initial "artist"
+                :interval "500ms"
+                "mpc -f %artist% current")
 (defpoll prog_bar 	:initial '0'
-			:interval "1s"
+			        :interval "500ms"
 "mpc status | grep '#' | awk '{print $4}' | sed 's/(//;s/%.//'")
+
