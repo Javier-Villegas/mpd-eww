@@ -1,36 +1,53 @@
 // Start from scratch
 * {
 	all: unset;
-	background-color:	#1c1e26;
-	color:				#d3d4de;
-	border-radius:		10px;
-	opacity: 1;
 }
 
-.music-player{
-	all:unset;
-	border-radius:	10px;
-}
-
-.music_player {
+.background {
 	all: unset;
 	background-color:	#1c1e26;
-
+	color: #1c1e26;
+	padding: 10px;
+	opacity: 0.97;
 }
 
+.main_box{
+	all: unset;
+	//background-color: #1c1e26;
+	color: #d3d4de;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.music_player_bar {
+	all: unset;
+	background-color: #1c1e26;
+}
+
+.music_player_bar scale trough{
+	all: unset;
+	background-color: #d2d4de;
+	min-width: 200px;
+	min-height: 20px;
+	margin: 5px 20px 5px 20px;
+	border-radius: 9px;
+}
 
 .music_player_bar scale trough highlight {
 	all: unset;
-	background-color:	#1c1e26;
-	border-radius:		5px;
-
+	border-radius: 8px;
+	background-color: #6bdfe6;
+	opacity: 1;
 }
 
-.music_player_bar scale trough {
+.music_player_buttons button {
 	all: unset;
-	background-color:	#d3d4de;
-	min-height: 		20px;
-	min-width:			100px;
-	border-radius:		8px;
-	margin:				10px 0px 0px 0px;
+	background-color: #27d796;
+	min-width: 50px;
+	min-height: 50px;	
+	border-radius: 8px;
+}
+
+.music_player_buttons button:hover {
+	background-color: #09f7a0;
 }
