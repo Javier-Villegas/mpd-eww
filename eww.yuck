@@ -1,24 +1,32 @@
 ; Widget definition
 (defwidget music-player [] 
-	(box	:orientation  "horizontal"
+	(box	:class "music_player"
+            :orientation  "horizontal"
             :spacing      "20"
             :halign       "start"
             :space-evenly false
-            (box  :width 0)
+            :halign       "center"
+            :valign       "center"
 			(image 	:path 	'/tmp/test.png'
 				    :width 	'180'
 				    :heigth '180'
             )
-		    (box	:orientation  "vertical"
+		    (box    :orientation  "vertical"
 			        :spacing      "10"
                     :space-evenly true
                     :valign       "center"
                     :height       150
-                    artist
                     title
-			        (progress :value prog_bar
+			        (box      :class "music_player_bar"
+                              :haligh "center"
+                              :hexpand false :vexpand false
+                              (scale
+                              :value prog_bar
 					          :orientation 'h'
 			                  :width '100'
+                              :min 0
+                              :max 100
+                              )
                     )
 			        (box	:orientation "horizontal"
 				            :halign "center"
@@ -42,17 +50,14 @@
 	:stacking "fg"
 	:reserve (struts  :distance "40px" :side "top")
 	                  :windowtype "normal"
-	                  :wm-ignore false
-    music-player
+	                  :wm-ignore true 
+    (music-player)
 )
 
 ; Polling variables
 (defpoll title  :initial "title"
 		        :interval "500ms"
-                "mpc -f '%title%' current")
-(defpoll artist :initial "artist"
-                :interval "500ms"
-                "mpc -f %artist% current")
+                "mpc -f '%title% \\n %artist%' current")
 (defpoll prog_bar 	:initial '0'
 			        :interval "500ms"
 "mpc status | grep '#' | awk '{print $4}' | sed 's/(//;s/%.//'")
