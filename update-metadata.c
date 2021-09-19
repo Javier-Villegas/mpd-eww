@@ -1,4 +1,4 @@
-#include<cstdio>
+#include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 void get_substring(int max_char, char * orig, char ** output);
@@ -30,11 +30,11 @@ void get_substring(int max_char, char * orig, char ** output){
 	//UTF16 is likely to exist in the input
 	unsigned cnt=0, i;
 	for(i=0; cnt < max_char && i < strlen(orig);i++){
-		if((unsigned(orig[i]) & 0xF0) == 0xF0){
+		if((orig[i] & 0xF0) == 0xF0){
 			i+=3;
-		}else if((unsigned(orig[i]) & 0xE0) == 0xE0){
+		}else if((orig[i] & 0xE0) == 0xE0){
 			i+=2;
-		}else if((unsigned(orig[i]) & 0xC0) == 0xC0){
+		}else if((orig[i] & 0xC0) == 0xC0){
 			++i;
 		}
 		cnt++;
@@ -46,10 +46,10 @@ void get_substring(int max_char, char * orig, char ** output){
 		strcpy(*output,orig);
 	}else{
 		strncpy(*output,orig,i);
-		*output[i+3] = '\0';
-		*output[i+2] = '.';		
-		*output[i+1] = '.';
-		*output[i] = '.';
+		output[0][i+3] = '\0';
+		output[0][i+2] = '.';		
+		output[0][i+1] = '.';
+		output[0][i] = '.';
 	}
 	printf("%s\n",*output);
 	return;
