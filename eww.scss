@@ -11,17 +11,30 @@
 	opacity: 0.97;
 }
 
+.album_cover {
+	all: unset;
+	margin:  0px 0px 0px -30px;
+}
+
 .main_box{
 	all: unset;
 	//background-color: #1c1e26;
 	color: #d3d4de;
+	min-width: 350px;
 	font-size: 18px;
 	font-weight: bold;
+	margin: 0px -120px 0px -160px;
+}
+
+.title_box {
+	all: unset;
+	margin: 10px 0px -35px 0px;
 }
 
 .music_player_bar {
 	all: unset;
 	background-color: #1c1e26;
+	margin: 50px 0px 0px 0px;
 }
 
 .music_player_bar scale trough{
@@ -29,7 +42,7 @@
 	background-color: #d2d4de;
 	min-width: 200px;
 	min-height: 20px;
-	margin: 5px 20px 5px 20px;
+	margin: 8px 20px 10px 20px;
 	border-radius: 9px;
 }
 
@@ -42,6 +55,9 @@
 
 .music_player_buttons button {
 	all: unset;
+	font-family: "TerminessTTF Nerd Font";
+	font-size: 35px;
+	color: #1c1e26;
 	background-color: #27d796;
 	min-width: 50px;
 	min-height: 50px;	

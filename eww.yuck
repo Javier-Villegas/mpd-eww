@@ -11,7 +11,7 @@
 
 (defwidget album_cover []
   (image  :class  "album_cover"
-          :path   "/tmp/test.png"
+          :path   "/home/javier/.config/eww/test.png"
           :width  180
           :height 180
    )
@@ -24,9 +24,8 @@
 			        :spacing      "10"
                     :space-evenly false
                     :valign       "bottom"
-                    :height       180
-                    :width        600
-                    (box  :halign "center"
+                    (box  :class "title_box"
+                          :halign "center"
                           :orientation "vertical"
                           title
                           artist
@@ -45,11 +44,12 @@
 			        (box    :class "music_player_buttons"	
                             :orientation "horizontal"
 				            :halign "center"
+                            :valign "bottom"
                             :spacing 10
-				            (button :onclick "mpc prev"   "" )
-				            (button :onclick "mpc toggle" "" )
-				            (button :onclick "mpc stop"   "" )
-				            (button :onclick "mpc next"   "" )
+				            (button :onclick "mpc prev"   "玲" )
+                            (button :onclick "mpc toggle" "契" )
+				            (button :onclick "mpc stop"   "栗" )
+				            (button :onclick "mpc next"   "怜" )
 			        )
 		    )
 
@@ -58,11 +58,11 @@
 ; Window definition
 (defwindow mpd-client
 	:monitor 0
-	:geometry (geometry :x "-400px"
-                        :y "400px"
+	:geometry (geometry :x "-20px"
+                        :y "40px"
                         :width "25%"
 	                    :height "200px"
-			    	   	:anchor "center center")
+			    	   	:anchor "top right")
 	:stacking "fg"
 	                  :windowtype "normal" 
 	                  :wm-ignore true 
@@ -70,13 +70,15 @@
 )
 
 ; Polling variables
-(defpoll title  :initial "title"
-		        :interval "500ms"
-                "mpc -f %title% current")
+(defvar title "a"
+;		        :interval "500ms"
+;"mpc -f %title% current"
+)
 
-(defpoll artist  :initial "title"
-		        :interval "500ms"
-                "mpc -f %artist% current")
+(defvar artist  "title"
+;		        :interval "500ms"
+;                "mpc -f %artist% current"
+)
 (defpoll prog_bar 	:initial '0'
 			        :interval "500ms"
 "mpc status | grep '#' | awk '{print $4}' | sed 's/(//;s/%.//'")
