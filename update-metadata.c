@@ -61,22 +61,15 @@ void get_substring(int max_char, char * orig){
 
 void status_changed(MpdObj *mi, ChangedStatusType what){
 	if(what&MPD_CST_SONGID){
-		printf("Read song\n");
 		mpd_Song *song = mpd_playlist_get_current_song(mi);
-		printf("Done\n");
 		char output[500];
-		if (song == NULL ){
-			printf("Error getting metadata\n");
-			printf("Song change detected!\nTitle: Missing\nArtist: Missing\n");
-		}else{
+		if (song != NULL){
 			if (song->title != NULL) get_substring(MAX_CHAR,song->title);
 			if (song->artist != NULL) get_substring(MAX_CHAR,song->artist);
 			
-			sprintf(output, "ffmpeg -i /HDD/music/\"%s\" -y ~/.config/eww/test.png; ~/Documents/eww/target/release/eww update title=\"%s\" artist=\"%s\" img=\"/home/javier/.config/eww/test.png\"",
+			sprintf(output, "ffmpeg -i /HDD/music/\"%s\" -y /HDD/music/test.png; ~/Documents/eww/target/release/eww update title=\"%s\" artist=\"%s\" img=\"/HDD/music/test.png\"",
 					song->file, song->title, song->artist);
 			system(output);
-			printf("Song change detected!\nTitle: %s\nArtist: %s\n",
-				song->title, song->artist);
 		}
 	}
 }
