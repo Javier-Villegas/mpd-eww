@@ -50,6 +50,8 @@
                             (button :onclick "mpc toggle" "契" )
 				            (button :onclick "mpc stop"   "栗" )
 				            (button :onclick "mpc next"   "怜" )
+                            (button :onclick "[[ \"$(mpc random | grep random | awk '{print $6}')\" == \"on\" ]] && ~/Documents/eww/target/release/eww update rnd_btn='列' || ~/Documents/eww/target/release/eww update rnd_btn='劣'" rnd_btn )
+
 			        )
 		    )
 
@@ -60,12 +62,12 @@
 	:monitor 0
 	:geometry (geometry :x "-20px"
                         :y "40px"
-                        :width "25%"
+                        :width "30%"
 	                    :height "200px"
 			    	   	:anchor "top right")
 	:stacking "fg"
 	                  :windowtype "normal" 
-	                  :wm-ignore true 
+                      :wm-ignore true 
     (music-player)
 )
 
@@ -73,6 +75,7 @@
 (defvar title "a")
 (defvar artist  "title")
 (defvar img "/home/javier/.config/eww/test.png")
+(defvar rnd_btn "列")
 
 ; Polling variables
 (defpoll prog_bar 	:initial '0'

@@ -5,35 +5,35 @@
 
 .background {
 	all: unset;
-	background-color:	#1c1e26;
-	color: #1c1e26;
+	background-color:	#121212;
+	color: #121212;
 	padding: 10px;
-	opacity: 0.97;
+	opacity: 0.9;
 }
 
 .album_cover {
 	all: unset;
-	margin:  0px 0px 0px -30px;
+	margin:  0px 40px 0px -40px;
 }
 
 .main_box{
 	all: unset;
-	//background-color: #1c1e26;
+	//background-color: #121212;
 	color: #d3d4de;
 	min-width: 350px;
 	font-size: 18px;
 	font-weight: bold;
-	margin: 0px -120px 0px -160px;
+	margin: 0px -120px 20px -200px;
 }
 
 .title_box {
 	all: unset;
-	margin: 10px 0px -35px 0px;
+	margin: 10px 0px -30px 0px;
 }
 
 .music_player_bar {
 	all: unset;
-	background-color: #1c1e26;
+	background-color: #121212;
 	margin: 50px 0px 0px 0px;
 }
 
@@ -42,28 +42,29 @@
 	background-color: #d2d4de;
 	min-width: 200px;
 	min-height: 20px;
-	margin: 8px 20px 10px 20px;
+	margin: 0px 30px 10px 30px;
 	border-radius: 9px;
 }
 
 .music_player_bar scale trough highlight {
 	all: unset;
 	border-radius: 8px;
-	background-color: #6bdfe6;
+	background-color: #CF6679;
 	opacity: 1;
 }
 
 .music_player_buttons button {
 	all: unset;
 	font-family: "TerminessTTF Nerd Font";
-	font-size: 35px;
+	font-size: 32px;
 	color: #1c1e26;
-	background-color: #27d796;
-	min-width: 50px;
-	min-height: 50px;	
+	background-color: #BB86Fc;
+	min-width: 55px;
+	min-height: 55px;	
 	border-radius: 8px;
 }
 
 .music_player_buttons button:hover {
-	background-color: #09f7a0;
+	background-color: #FF86FC;
 }
+
