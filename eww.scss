@@ -37,7 +37,7 @@
 	margin: 50px 0px 0px 0px;
 }
 
-.music_player_bar scale trough{
+.music_player_bar progressbar trough{
 	all: unset;
 	background-color: #d2d4de;
 	min-width: 200px;
@@ -46,9 +46,11 @@
 	border-radius: 9px;
 }
 
-.music_player_bar scale trough highlight {
+.music_player_bar progressbar trough progress {
 	all: unset;
-	border-radius: 8px;
+	border-radius: 9px;
+	min-width: 5px;
+	min-height: 20px;
 	background-color: #CF6679;
 	opacity: 1;
 }
