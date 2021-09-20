@@ -11,7 +11,7 @@
 
 (defwidget album_cover []
   (image  :class  "album_cover"
-          :path   "/home/javier/.config/eww/test.png"
+          :path   img
           :width  180
           :height 180
    )
@@ -69,16 +69,12 @@
     (music-player)
 )
 
-; Polling variables
-(defvar title "a"
-;		        :interval "500ms"
-;"mpc -f %title% current"
-)
+; Variables
+(defvar title "a")
+(defvar artist  "title")
+(defvar img "/home/javier/.config/eww/test.png")
 
-(defvar artist  "title"
-;		        :interval "500ms"
-;                "mpc -f %artist% current"
-)
+; Polling variables
 (defpoll prog_bar 	:initial '0'
 			        :interval "500ms"
 "mpc status | grep '#' | awk '{print $4}' | sed 's/(//;s/%.//'")
