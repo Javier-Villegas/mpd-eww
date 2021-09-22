@@ -3,14 +3,14 @@
 	all: unset;
 }
 
-.background {
+
+.mpd-client {
 	all: unset;
 	background-color:	#121212;
 	color: #121212;
 	padding: 10px;
 	opacity: 0.9;
 }
-
 .album_cover {
 	all: unset;
 	margin:  0px 40px 0px -40px;
@@ -69,4 +69,3 @@
 .music_player_buttons button:hover {
 	background-color: #FF86FC;
 }
-

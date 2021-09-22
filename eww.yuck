@@ -72,6 +72,7 @@
     (music-player)
 )
 
+
 ; Variables
 (defvar title "a")
 (defvar artist  "title")
@@ -82,4 +83,5 @@
 (defpoll prog_bar 	:initial '0'
 			        :interval "500ms"
 "mpc status | grep '#' | awk '{print $4}' | sed 's/(//;s/%.//'")
+
 
