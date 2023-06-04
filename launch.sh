@@ -4,5 +4,5 @@ if [[ -n "$(pgrep test.o)" ]]; then
 	~/Documents/eww/target/release/eww close mpd-client
 else
 	~/Documents/eww/target/release/eww open mpd-client
-	exec ./test.o
+	exec ~/.config/eww/test.o
 fi

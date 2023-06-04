@@ -4,7 +4,7 @@
 #include<libmpd.h>
 #include <unistd.h>
 
-#define MAX_CHAR 20
+#define MAX_CHAR 32
 void get_substring(int max_char, char * orig);
 void status_changed(MpdObj *mi, ChangedStatusType what);
 
